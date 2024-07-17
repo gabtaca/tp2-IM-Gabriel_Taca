@@ -1,16 +1,19 @@
 {
-    "rewrites": [
+    "version": 2,
+    "builds": [
       {
-        "source": "/products/*",
-        "destination": "/src/html/products.html"
+        "src": "index.html",
+        "use": "@vercel/static-build",
+        "config": {
+          "distDir": "public"
+        }
       },
       {
-        "source": "/contact/*",
-        "destination": "/src/html/contact.html"
-      },
-      {
-        "source": "/about/*",
-        "destination": "/src/html/about.html"
+        "src": "src/html/*.html",
+        "use": "@vercel/static-build",
+        "config": {
+          "distDir": "public"
+        }
       }
     ]
   }
