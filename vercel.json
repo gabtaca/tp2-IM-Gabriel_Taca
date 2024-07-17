@@ -1,7 +1,7 @@
 {
     "rewrites": [
       {
-        "source": "/**(products|contact|about)/**",
+        "source": "/(?:products|contact|about)/.*",
         "destination": "/src/html/$1.html"
       }
     ]
