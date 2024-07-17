@@ -1,16 +1,8 @@
 {
     "rewrites": [
-        {
-            "source": "/products",
-            "destination": "/src/html/products.html"
-        },
-        {
-            "source": "/contact",
-            "destination": "/src/html/contact.html"
-        },
-        {
-            "source": "/about",
-            "destination": "/src/html/about.html"
-        }
+      {
+        "source": "/**(products|contact|about)/**",
+        "destination": "/src/html/$1.html"
+      }
     ]
-}
+  }
