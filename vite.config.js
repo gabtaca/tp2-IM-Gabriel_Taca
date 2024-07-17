@@ -2,7 +2,13 @@
 export default {
     build: {
       rollupOptions: {
-        external: ['index.html'],
+        input: 'src/html/index.html',
       },
-    },
-  };
+      copy: [
+        {
+          src: 'src/html/*.html',
+          dest: 'public'
+        }
+      ]
+    }
+  }

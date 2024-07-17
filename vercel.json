@@ -15,5 +15,11 @@
           "distDir": "public"
         }
       }
+    ],
+    "routes": [
+      {
+        "src": "src/html/*.html",
+        "dest": "public"
+      }
     ]
   }
