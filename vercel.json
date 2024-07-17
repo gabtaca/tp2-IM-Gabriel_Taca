@@ -1,33 +1,12 @@
 {
     "rewrites": [
-        {
-            "source": "/products",
-            "destination": "/src/html/products.html"
-        },
-        {
-            "source": "/contact",
-            "destination": "/src/html/contact.html"
-        },
-        {
-            "source": "/about",
-            "destination": "/src/html/about.html"
-        }
+      { "source": "/products", "destination": "/src/html/products.html" },
+      { "source": "/contact", "destination": "/src/html/contact.html" },
+      { "source": "/about", "destination": "/src/html/about.html" }
     ],
     "redirects": [
-        {
-            "source": "/src/html/products.html",
-            "destination": "/products",
-            "permanent": true
-        },
-        {
-            "source": "/src/html/contact.html",
-            "destination": "/contact",
-            "permanent": true
-        },
-        {
-            "source": "/src/html/about.html",
-            "destination": "/about",
-            "permanent": true
-        }
+      { "source": "/src/html/products.html", "destination": "/products", "permanent": true },
+      { "source": "/src/html/contact.html", "destination": "/contact", "permanent": true },
+      { "source": "/src/html/about.html", "destination": "/about", "permanent": true }
     ]
-}
+  }
