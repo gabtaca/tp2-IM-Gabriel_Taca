@@ -84,3 +84,16 @@ h1 {
   z-index: 1000;  
 
 }
+
+.visible {
+  display: flex; 
+}
+
+.hidden {
+  display: none;
+}
+
+#arrow {
+  transition: transform 0.3s ease;
+}
+

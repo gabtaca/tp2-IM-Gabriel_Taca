@@ -1,66 +1,79 @@
-import { gamesList } from "./gamesList"; 
+import { gamesList } from "./gamesList";
 
-const searchButton = document.getElementById("btn_search");
-const searchDiv = document.getElementById("search_div");
-const searchInput = document.getElementById('searchInput');
-const searchBarButton = document.getElementById("btn_srch-bar");
+document.addEventListener("DOMContentLoaded", function() {
+    const searchButton = document.getElementById("btn_search");
+    const searchDiv = document.getElementById("search_div");
+    const searchInput = document.getElementById('searchInput');
+    const searchBarButton = document.getElementById("btn_srch-bar");
+    const gameContainer = document.getElementById('screen_content-container-products');
 
-function handlePageLoadSearch() {
-  const params = new URLSearchParams(window.location.search);
-  const searchQuery = params.get('search');
-  if (searchQuery) {
-    searchInput.value = searchQuery;
-    searchProducts(searchQuery.toLowerCase());
-    searchDiv.classList.remove("md:hidden");
-  }
-}
+    function toggleSearchDiv(show) {
+        if (show) {
+            searchDiv.classList.remove("md:hidden");
+            searchInput.focus();
+        } else {
+            searchDiv.classList.add("md:hidden");
+            resetSearch();
+        }
+    }
 
-document.addEventListener("DOMContentLoaded", handlePageLoadSearch);
+    function resetSearch() {
+        searchInput.value = "";
+        filterGames("");
+    }
 
+    function filterGames(query) {
+        gamesList.forEach(game => {
+            const isVisible = game.title.toLowerCase().includes(query.toLowerCase()) ||
+                              game.description.toLowerCase().includes(query.toLowerCase()) ||
+                              game.type.toLowerCase().includes(query.toLowerCase());
+            game.setVisible(isVisible);
+        });
+    }
 
-searchButton.addEventListener("click", () => {
-  searchDiv.classList.toggle("md:hidden");
-  if (!searchDiv.classList.contains("md:hidden")) {
-    searchInput.focus();  
-  } else {
-    resetSearch();
-  }
+    function setupGameVisibility() {
+        gamesList.forEach(game => {
+            game.setVisible(true);
+        });
+    }
+
+    searchButton.addEventListener("click", () => {
+        const isHidden = searchDiv.classList.contains("md:hidden");
+        toggleSearchDiv(isHidden);
+    });
+
+    if (gameContainer) {
+        setupGameVisibility();
+
+        const params = new URLSearchParams(window.location.search);
+        const searchQuery = params.get('search');
+        if (searchQuery) {
+            searchInput.value = searchQuery;
+            setTimeout(() => {
+                filterGames(searchQuery);
+                toggleSearchDiv(true);
+            }, 300);
+        }
+
+        searchInput.addEventListener("input", () => {
+            filterGames(searchInput.value);
+            const newUrl = window.location.pathname;
+            history.replaceState(null, '', newUrl); 
+        });
+    } else {
+        searchBarButton.addEventListener("click", function(event) {
+            event.preventDefault();
+            const query = searchInput.value.trim();
+            if (query) {
+                window.location.href = `/src/html/products.html?search=${encodeURIComponent(query)}`;
+            }
+        });
+
+        searchInput.addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                searchBarButton.click();
+            }
+        });
+    }
 });
-
-searchBarButton.addEventListener("click", search);
-searchInput.addEventListener("keypress", function(event) {
-  if (event.key === "Enter") {
-    event.preventDefault(); 
-    search();
-  }
-});
-
-function search() {
-  const inputValue = searchInput.value.toLowerCase();
-  if (inputValue === "") {
-    resetSearch();
-  } else if (!window.location.href.includes("products.html")) {
-    window.location.href = `products.html?search=${encodeURIComponent(inputValue)}`;
-  } else {
-    searchProducts(inputValue);
-  }
-}
-
-function searchProducts(inputValue) {
-  gamesList.forEach(game => {
-    const isVisible = game.title.toLowerCase().includes(inputValue) ||
-                      game.description.toLowerCase().includes(inputValue) ||
-                      game.type.toLowerCase().includes(inputValue);
-    game.detailsElement.style.display = isVisible ? '' : 'none';
-  });
-}
-
-function resetSearch() {
-  searchInput.value = ""; 
-  gamesList.forEach(game => {
-    game.detailsElement.style.display = '';
-  });
-  if (window.location.pathname.includes("products.html")) {
-    history.replaceState({}, '', window.location.pathname);
-  }
-}

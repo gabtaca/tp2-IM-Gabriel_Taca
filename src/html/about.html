@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+25+Charted&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton+SC&family=Silkscreen:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/images/logo_arcade.png">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.44/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+
+    <title>RETRO SOURCE</title>
+</head>
+
+<body class="m-auto w-full justify-center items-center bg-zinc-800">
+    <header id="header_home"
+        class="header top-0 left-0 w-full bg-gray-400  border-[4px] rounded-lg border-gray-400 transition-transform duration-300 z-10">
+        <div class="border-[4px] rounded-md border-red-700 justify-center items-center">
+            <div class="border-[3px] rounded-md border-gray-300">
+                <div class="border-[2px] rounded-md border-red-700 p-3">
+                    <nav class="flex w-full flex-row items-center justify-between">
+                        <div class="flex flex-row items-center gap-5 pl-5">
+                            <div class="flex md:hidden min-w-[40px]">
+                                <button id="btn_open-burger">
+                                    <img class="flex" width="30rem" height="30rem" src="/images/burger.svg"
+                                        alt="Icône Burger">
+                                </button>
+                                <div id="burger_list"
+                                    class="hidden absolute z-40 inset-x-0 w-[100%] float-left mt-[68px] border-[2px] rounded-md border-red-700 p-10 font-sixtyfour text-lime-950 bg-gray-200">
+                                    <span class="pb-10"><a href="/src/html/products.html">Our products</a></span>
+                                    <hr class="border-1 border-lime-950 pb-10">
+                                    <span class="pb-10"><a href="/src/html/contact.html">Contact us</a></span>
+                                    <hr class="border-1 border-lime-950 pb-10">
+                                    <span class="pb-10"><a href="/src/html/about.html">About us</a></span>
+                                    <hr class="border-1 border-lime-950 pb-10">
+                                </div>
+
+                            </div>
+                            <div class="flex justify-center min-w-[40px] md:p-2">
+                                <a href="index.html">
+                                    <img class="flex bg-blue-50 border-2 border-black rounded" width="50rem"
+                                        height="50rem" src="/images/logo_arcade.png" alt="logo arcade">
+                                </a>
+                            </div>
+                            <img class="w-[60%] hidden sm:flex self-center md:hidden"
+                                src="/images/banner_retro-source.png" alt="banniere nom du site">
+                            <div
+                                class="hidden md:text-md lg:text-xl 2xl:text-3xl gap-7 lg:gap-16 font-slikScreen text-lime-950 md:flex">
+                                <a class="hover:underline active:underline" href="index.html">Home</a>
+                                <a class="hover:underline active:underline" href="/src/html/products.html">Our
+                                    products</a>
+                                <a class="hover:underline active:underline" href="/src/html/contact.html">Contact us</a>
+                                <a class="hover:underline active:underline" href="/src/html/about.html">About us</a>
+                            </div>
+                        </div>
+                        <div class="flex gap-3 justify-center pr-4">
+                            <button id="btn_search"><img src="/images/search.svg" alt="Icone loupe"></button>
+                            <button id="btn_cart" class="flex flex-row min-w-[30px]"><img src="/images/cart.svg"
+                                    alt="Icone cart"><span id="cart_count"
+                                    class="bg-lime-950 hidden text-white px-[5px] rounded-2xl font-sixtyfour"></span></button>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+            <div id="cart_modal"
+                class="absolute hidden z-50 inset-x-0 top-16 mt-[45px] border-[2px] rounded-md border-red-700 p-3 bg-gray-200 pb-6 shadow-lg sm:px-2 lg:left-auto lg:right-0  lg:-mr-1.5 lg:mt-[45px] lg:w-80 lg:rounded-lg lg:ring-1 lg:ring-black lg:ring-opacity-5">
+                <h2 class="sr-only">Shopping Cart</h2>
+                <form class="mx-auto max-w-2xl px-4">
+                    <ul id="cart_item-list" role="list" class="divide-y divide-gray-200">
+                        <!-- More products here lolol... -->
+                    </ul>
+                    <button type="submit"
+                        class="w-full rounded-md border border-transparent bg-red-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-lime-950 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50">Checkout</button>
+                    <p class="mt-6 text-center">
+                        <a href="#" class="text-sm font-medium text-red-800 hover:text-red-400">View Shopping Bag</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+        <div id="search_div"
+            class="flex w-100 input-group justify-center items-center md:float-right md:hidden flex-row">
+            <div class="flex flex-row px-4 py-2 rounded-b-xl border-b-4 border-x-4 border-red-700 bg-lime-100">
+                <input type="text" id="searchInput" class="bg-lime-100 form-control text-light-emphasis items-center  "
+                    placeholder="Find the perfect game!">
+                <button id="btn_srch-bar" class=""><img src="/images/search.svg" alt="icone recherche"></button>
+            </div>
+        </div>
+    </header>
+    <main class="w-full justify-center bg-zinc-800">
+        <div id="contact_bg" class="bg-zinc-200 text-zinc-900 text-center">
+            <div class="relative">
+                <h1 class="left-0 right-0 top-[30%] bottom-0 my-0 mx-0 font-AntonSc  text-3xl py-10">This is our team!</h1>
+            </div>
+            <p id="team_presentation" class="font-slikScreen p-5">We are a small company of three. We are dedicated to curate and bring to you
+                the best small INDIE games possible and give the spotlight to small developpers on our platform. We help
+                bring your projects to life with ressources and advices.</p>
+            <div id="team_container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 text-amber-800 gap-10">
+                <button id="trueColorToggle" class="bg-orange-600 rounded-lg border-4 border-amber-50 col-span-1 md:col-span-2 lg:col-span-3 lg:w-[20rem] lg:float-right mx-5 px-10 py-5 font-sixtyfour text-2xl lg:text-sm text-amber-50">True colors</button>
+                <div class="md:col-start-2 md:row-start-2 lg:col-start-1 lg:row-start-2">
+                    <p id="ceo_text" class="text-center px-5 drop-shadow-md ">Joe Smith, our dynamic CEO, brings a wealth of experience and a passion for indie games to the
+                        helm of our company. His vision is to create a platform that not only showcases the best small
+                        indie games but also supports the developers behind them. Joe is dedicated to ensuring that our
+                        platform is a haven for creativity, innovation, and the vibrant indie game community.</p>
+                </div>
+                <div class="md:col-start-1 md:row-start-2 lg:col-start-1 lg:row-start-3"><img id="ceo" class="animate__animated animate__jackInTheBox " src="/images/ceo.gif" alt="gif animée du CEO"></div>
+                <div class="md:col-start-1 md:row-start-3 lg:col-start-2 lg:row-start-2">
+                    <p id="dev_text" class="text-center px-5 drop-shadow-md ">John Doe, our talented developer, is the technical backbone of our team. With a knack for coding
+                        and a deep love for indie games, John works tirelessly to create a seamless and engaging
+                        experience for our users. He ensures that our platform runs smoothly, enabling indie developers
+                        to showcase their games and connect with a wider audience.</p>
+                </div>
+                <div class="md:col-start-2 md:row-start-3 lg:col-start-2 lg:row-start-3"><img id="dev" class="dev animate__animated animate__rollIn md:-scale-x-100 " src="/images/dev.gif" alt="gif animée du dev"></div>
+                <div class="md:col-start-2 md:row-start-4 lg:col-start-3 lg:row-start-2">
+                    <p id="artist_text" class="text-center px-5 drop-shadow-md ">Emile Johnson, our creative artist, infuses our platform with a unique and captivating aesthetic.
+                        His artistic talents help bring the indie games we feature to life, creating a visually
+                        appealing environment for our users. Emile's work ensures that each game gets the spotlight it
+                        deserves, making our platform a beautiful and inspiring place for game discovery.</p>
+                </div>
+                <div class="md:col-start-1 md:row-start-4 lg:col-start-3 lg:row-start-3"><img id="artist" class="animate__animated animate__slideInLeft" src="/images/artist.gif" alt="gif animée de l'artiste"></div>
+                <div class="flex flex-col text-sm rounded-t-lg bg-gradient-to-t from-teal-700 via-teal-500 to-teal-500 text-white shadow-inner-[rgba(0,0,0,0.5)_10px_5px_4px_0px] p-5 md:col-start-1 md:row-start-5">
+                    <a class="cursor-pointer hover:underline "
+                        href="https://www.deviantart.com/blurredmirror/art/Pixel-Art-GIF-Businessman-losing-money-689975594">CEO
+                        image references</a>
+                    <a class="cursor-pointer hover:underline text-sm"
+                        href="https://www.artstation.com/artwork/q9RJKP">CEO image references true colors</a>
+                    <a class="cursor-pointer hover:underline text-sm"
+                        href="https://www.reddit.com/r/PixelArt/comments/qzsd2v/made_my_first_little_pixel_gif_and_im_proud_of_it/">Artist
+                        image references</a>
+                    <a class="cursor-pointer hover:underline text-sm" href="https://gifer.com/en/user/353984">Artist
+                        image references true colors</a>
+                    <a class="cursor-pointer hover:underline text-sm"
+                        href="https://www.deviantart.com/blurredmirror/art/Pixel-Art-GIF-Old-Man-with-Coffee-689974605">DEV
+                        image references</a>
+                    <a class="cursor-pointer hover:underline text-sm"
+                        href="https://www.pinterest.de/pin/662381057667335785/">DEV image references true colors</a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="flex flex-col">
+            <div class="flex flex-row md:flex-col justify-start items-start p-5"><a href="index.html"><img
+                        class="logo_footer flex border-2 bg-white border-white p-1 rounded" width="100rem"
+                        height="100rem" src="/images/logo_arcade.png" alt="logo dessin d'enfant"></a>
+                <div class="px-3 md:px-0 md:py-5">
+                    <label for="location" class="block text-sm font-medium leading-6 text-gray-900"></label>
+                    <select id="location" name="location"
+                        class="block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                        <option data-icon="⚑">United States</option>
+                        <option data-icon="⚑" selected>Canada</option>
+                        <option data-icon="⚑">Mexico</option>
+                    </select>
+                </div>
+            </div>
+            <ul class="text-white text-xl col-start-1 pl-5">
+                <li class="py-3"><a class="text-lg hover:underline" href="home.html">Home</a></li>
+                <li class="py-3"><a class="text-lg hover:underline" href="/src/html/products.html">Our products</a></li>
+                <li class="py-3"><a class="text-lg hover:underline" href="/src/html/contact.html">Contact us</a></li>
+                <li class="py-3"><a class="text-lg hover:underline" href="/src/html/about.html">About us
+
+                    </a></li>
+            </ul>
+        </div>
+        <div class="bg-purple-600 hidden xl:flex flex-col xl:col-start-2 pl-[5rem] border-white">
+            <p class="pt-10 text-2xl text-white">Find your perfect game type</p>
+            <div id="content_1" class="flex flex-row">
+                <ul class="p-16 w-[50%] text-xl text-white">
+                    <li><a href="/src/html/products.html?search=Sports"
+                            class="hover:underline cursor-pointer">Sports</a></li>
+                    <li><a href="/src/html/products.html?search=Fighting"
+                            class="hover:underline cursor-pointer">Fighting</a></li>
+                    <li><a href="/src/html/products.html?search=RPG" class="hover:underline cursor-pointer">RPG</a></li>
+                    <li><a href="/src/html/products.html?search=Racing"
+                            class="hover:underline cursor-pointer">Racing</a></li>
+                    <li><a href="/src/html/products.html?search=Adventure"
+                            class="hover:underline cursor-pointer">Adventure</a></li>
+                    <li><a href="/src/html/products.html?search=Management"
+                            class="hover:underline cursor-pointer">Management</a></li>
+                    <li><a href="/src/html/products.html?search=Platformer"
+                            class="hover:underline cursor-pointer">Platformer</a></li>
+                    <li><a href="/src/html/products.html?search=Simulator"
+                            class="hover:underline cursor-pointer">Simulator</a></li>
+                    <li><a href="/src/html/products.html?search=Stealth"
+                            class="hover:underline cursor-pointer">Stealth</a></li>
+                </ul>
+                <div class="flex w-[50%] h-[20rem]">
+                    <div id="footer_game-img" class="w-full h-[100%] bg-no-repeat bg-center">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row-start-2 p-5">
+            <label for="email" class="block md:text-xl font-medium leading-6 text-center text-white">Subscribe to be
+                first to know about our indie games</label>
+            <div class="relative mt-2 rounded-md shadow-sm">
+                <input type="email" name="email" id="email"
+                    class="block w-full rounded-md border-0 py-3 pr-10 text-red-900 ring-1 pl-3 ring-inset ring-red-300 placeholder:text-red-300 focus:ring-2 focus:ring-inset focus:ring-red-500 sm:text-sm sm:leading-6"
+                    placeholder="Ton e-mail ici!" value="" aria-invalid="true" aria-describedby="email-error">
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-1">
+                    <svg class="h-5 w-5 text-red-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path fill-rule="evenodd"
+                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-5a.75.75 0 01.75.75v4.5a.75.75 0 01-1.5 0v-4.5A.75.75 0 0110 5zm0 10a1 1 0 100-2 1 1 0 000 2z"
+                            clip-rule="evenodd" />
+                    </svg>
+                    <button type="button"
+                        class="rounded bg-purple-600 px-3 py-1 text-3xl font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">✉
+                    </button>
+                </div>
+            </div>
+            <p class="mt-2 text-sm text-red-300" id="email-error">Enter a valid address.</p>
+        </div>
+        <div class="xl:hidden">
+            <div class="bg-purple-600 border-t-4 border-b-4 border-white">
+                <button type="button"
+                    class="exp_dropdown w-full flex flex-row justify-between px-5 py-5 text-xl font-bold text-white">Find
+                    your perfect game type<p id="arrow">▼</p></button>
+                <div class="content flex flex-row">
+                    <ul class="flex flex-col p-5 text-xl w-[50%] text-white">
+                        <li><a href="/src/html/products.html?search=Sports"
+                                class="hover:underline cursor-pointer">Sports</a></li>
+                        <li><a href="/src/html/products.html?search=Fighting"
+                                class="hover:underline cursor-pointer">Fighting</a></li>
+                        <li><a href="/src/html/products.html?search=RPG" class="hover:underline cursor-pointer">RPG</a>
+                        </li>
+                        <li><a href="/src/html/products.html?search=Racing"
+                                class="hover:underline cursor-pointer">Racing</a></li>
+                        <li><a href="/src/html/products.html?search=Adventure"
+                                class="hover:underline cursor-pointer">Adventure</a></li>
+                        <li><a href="/src/html/products.html?search=Management"
+                                class="hover:underline cursor-pointer">Management</a></li>
+                        <li><a href="/src/html/products.html?search=Platformer"
+                                class="hover:underline cursor-pointer">Platformer</a></li>
+                        <li><a href="/src/html/products.html?search=Simulator"
+                                class="hover:underline cursor-pointer">Simulator</a></li>
+                        <li><a href="/src/html/products.html?search=Stealth"
+                                class="hover:underline cursor-pointer">Stealth</a></li>
+                    </ul>
+
+                </div>
+            </div>
+
+
+        </div>
+        <div class="ns_suivre flex flex-col xl:col-start-5 xl:row-start-2 items-start p-5">
+            <h2 class="text-white font-semibold text-2xl ">Follow us!</h2>
+            <nav class="flex flex-row justify-center p-5 gap-5">
+                <a class="btn_socials min-w-[50px] max-w-[70px] xl:w-[5rem] cursor-pointer xl:p-2"
+                    href="https://www.esports.com/en"><img src="/images/esport.svg" alt="icône esports"></a>
+                <a class="btn_socials min-w-[50px] max-w-[70px] xl:w-[5rem] cursor-pointer xl:p-2"
+                    href="https://www.twitch.tv/"><img src="/images/Twitch.svg" alt="icône twitch"></a>
+                <a class="btn_socials min-w-[50px] max-w-[70px] xl:w-[5rem] cursor-pointer xl:p-2"
+                    href="https://www.discord.com/"><img src="/images/discord.svg" alt="icône discord"></a>
+                <a class="btn_socials min-w-[50px] max-w-[70px] xl:w-[5rem] cursor-pointer xl:p-2"
+                    href="https://www.youtube.com"><img src="/images/YouTube.svg" alt="icône youtube"></a>
+            </nav>
+        </div>
+        <div class="last_div">
+            <p></p>
+        </div>
+        <p class="row-start-8 text-white col-span-5 py-10">&copy; 2024 Finn Taca. Tous droits réservés.</p>
+    </footer>
+    <div id="app"></div>
+    <audio id="punchSound" src="/sounds/key-punch.mp3"></audio>
+    <audio id="clickSound" src="/sounds/click-sound.wav"></audio>
+    <script type="module" src="/src/js/main.js" defer></script>
+    <script type="module" src="/src/js/about.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script src="/src/js/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+
+
+</body>
+
+</html>

@@ -3,7 +3,10 @@ import '/src/css/index.css';
 import '/src/js/cart';
 import '/src/js/burger';
 import '/src/js/search';
+import '/src/js/footer';
+import 'animate.css';
 import { gamesList } from "./gamesList";
+
 
 document.addEventListener('DOMContentLoaded', () => {
     function updateGameInfo(title, description) {
@@ -129,3 +132,4 @@ document.addEventListener('DOMContentLoaded', () => {
     
     setupModalAccessibility();
 });
+

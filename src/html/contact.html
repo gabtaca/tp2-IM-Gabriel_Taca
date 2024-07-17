@@ -17,14 +17,14 @@
 </head>
 
 <body class="m-auto w-full justify-center items-center bg-zinc-800">
-    <header id="header_contact"
+    <header id="header_home"
         class="header top-0 left-0 w-full bg-gray-400  border-[4px] rounded-lg border-gray-400 transition-transform duration-300 z-10">
         <div class="border-[4px] rounded-md border-red-700 justify-center items-center">
             <div class="border-[3px] rounded-md border-gray-300">
                 <div class="border-[2px] rounded-md border-red-700 p-3">
                     <nav class="flex w-full flex-row items-center justify-between">
                         <div class="flex flex-row items-center gap-5 pl-5">
-                            <div class="flex md:hidden">
+                            <div class="flex md:hidden min-w-[40px]">
                                 <button id="btn_open-burger">
                                     <img class="flex" width="30rem" height="30rem" src="/images/burger.svg"
                                         alt="Icône Burger">
@@ -40,20 +40,21 @@
                                 </div>
 
                             </div>
-                            <div class="flex justify-center p-2">
+                            <div class="flex justify-center min-w-[40px] md:p-2">
                                 <a href="index.html">
                                     <img class="flex bg-blue-50 border-2 border-black rounded" width="50rem"
                                         height="50rem" src="/images/logo_arcade.png" alt="logo arcade">
                                 </a>
                             </div>
-                            <img class="w-[60%] self-center md:hidden" src="/images/banner_retro-source.png"
-                                alt="banniere nom du site">
+                            <img class="w-[60%] hidden sm:flex self-center md:hidden"
+                                src="/images/banner_retro-source.png" alt="banniere nom du site">
                             <div
-                                class="hidden md:text-lg lg:text-xl 2xl:text-3xl gap-7 lg:gap-16 font-slikScreen text-lime-950 md:flex">
+                                class="hidden md:text-md lg:text-xl 2xl:text-3xl gap-7 lg:gap-16 font-slikScreen text-lime-950 md:flex">
                                 <a class="hover:underline active:underline" href="index.html">Home</a>
-                                <a class="hover:underline active:underline" href="products.html">Our products</a>
-                                <a class="hover:underline active:underline" href="contact.html">Contact us</a>
-                                <a class="hover:underline active:underline" href="about.html">About us</a>
+                                <a class="hover:underline active:underline" href="/src/html/products.html">Our
+                                    products</a>
+                                <a class="hover:underline active:underline" href="/src/html/contact.html">Contact us</a>
+                                <a class="hover:underline active:underline" href="/src/html/about.html">About us</a>
                             </div>
                         </div>
                         <div class="flex gap-3 justify-center pr-4">
@@ -74,7 +75,6 @@
                     </ul>
                     <button type="submit"
                         class="w-full rounded-md border border-transparent bg-red-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-lime-950 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50">Checkout</button>
-
                     <p class="mt-6 text-center">
                         <a href="#" class="text-sm font-medium text-red-800 hover:text-red-400">View Shopping Bag</a>
                     </p>
@@ -90,51 +90,52 @@
             </div>
         </div>
     </header>
-    <main class="flex w-full justify-center pt-16 bg-zinc-800">
-        <div class="flex justify-center items-start py-[2rem]">
+    <main class="flex flex-col w-full justify-center bg-zinc-800">
+        <div class="flex justify-center items-center py-[2rem]">
             <div class="w-[10%]"></div>
             <div class="flex justify-center items-center w-[95%] py-10 mt-10 h-[78%] relative">
                 <div id="scroll_ctrl-contact"
-                    class="flex absolute flex-row rounded-3xl w-[95%] h-[80%] md:h-[95%] lg:h-[100%] justify-center overflow-y-scroll scrollbar-thin scrollbar-thumb-lime-950 scrollbar-track-transparent ">
+                    class="flex absolute flex-row rounded-3xl w-[95%] h-[60%] md:h-[80%] justify-center overflow-y-scroll scrollbar-thin scrollbar-thumb-lime-950 scrollbar-track-transparent ">
                     <div id="screen_content-container-contact"
                         class="flex flex-col md:pl-10 md:pr-10 lg:pl-[2rem] w-[100%]">
-                        <div class="flex items-center justify-center p-12">
+                        <div class="flex items-center justify-center md:p-12">
                             <div class="mx-auto w-[90%] max-w-[550px] font-slikScreen">
-                                <h1 class="text-xl md:text-3xl text-lime-950 pt-5 pb-10 font-AntonSc">Get in touch with us!</h1>
-                                <p class="pb-3">For questions about us, our games or any other questions, don't hesitate to write us!</p>
+                                <h1 class="text-xl md:text-3xl text-lime-950 pt-5 pb-3 font-AntonSc">Get in touch with us!</h1>
+                                <p class="pb-3 text-sm text-center md:text-left md:text-lg">For questions about us, our games or any other subjects, don't hesitate to write us a message!</p>
+                                <div class="flex flex-col text-sm">
+
+                                    <div class="flex flex-row items-center">
+                                        <img id="ctct_anim-a" class="w-5 h-5 md:w-10 md:h-10 lg:w-12 lg:h-12" src="/images/btn_arc.png" alt="image de bouton d'arcade rouge"><p class="font-AntonSc px-2">A</p><p>(Submit)</p>
+                                    </div>
+
+                                    <div class="flex flex-row items-center py-2">
+                                        <img id="ctct_anim-b" class="w-5 h-5 md:w-10 md:h-10 lg:w-12 lg:h-12" src="/images/btn_arc.png" alt="image de bouton d'arcade rouge"><p class="font-AntonSc px-2">B</p><p>(Clear input)</p>
+                                    </div>
+                                </div>
+                                <form>
                                     <div class="mb-5">
-                                        <label for="name" class="mb-3 block text-base font-medium text-zinc-700">
-                                            Full Name
-                                        </label>
-                                        <input type="text" name="name" id="name" placeholder="Full Name"
-                                            class="w-full rounded-md border border-zinc-300 bg-white py-3 px-6 text-base font-medium text-zinc-400 outline-none focus:border-[#6A64F1] focus:shadow-md" />
+                                        <label for="name" class="mb-3 block text-base font-medium text-zinc-700">Full Name</label>
+                                        <input type="text" name="name" id="name" placeholder="Write your full name here" class="w-full rounded-md border border-zinc-300 bg-white py-3 px-6 text-base font-medium text-zinc-400 outline-none focus:border-2 focus:border-yellow-500 focus:shadow-md" />
                                     </div>
                                     <div class="mb-5">
-                                        <label for="email" class="mb-3 block text-base font-medium text-zinc-700">
-                                            Email Address
-                                        </label>
-                                        <input type="email" name="email" id="email" placeholder="your_email@here.com"
-                                            class="w-full rounded-md border border-zinc-300 bg-white py-3 px-6 text-base font-medium text-zinc-400 outline-none focus:border-[#6A64F1] focus:shadow-md" />
+                                        <label for="email" class="mb-3 block text-base font-medium text-zinc-700">Email Address</label>
+                                        <input type="email" name="email" id="email" placeholder="your_email@here.com" class="w-full rounded-md border border-zinc-300 bg-white py-3 px-6 text-base font-medium text-zinc-400 outline-none focus:border-2 focus:border-yellow-500 focus:shadow-md" />
                                     </div>
                                     <div class="mb-5">
-                                        <label for="subject" class="mb-3 block text-base font-medium text-zinc-700">
-                                            Subject
-                                        </label>
-                                        <input type="text" name="subject" id="subject" placeholder="What is this about?"
-                                            class="w-full rounded-md border border-zinc-300 bg-white py-3 px-6 text-base font-medium text-zinc-400 outline-none focus:border-[#6A64F1] focus:shadow-md" />
+                                        <label for="subject" class="mb-3 block text-base font-medium text-zinc-700">Subject</label>
+                                        <input type="text" name="subject" id="subject" placeholder="What is this about?" class="w-full rounded-md border border-zinc-300 bg-white py-3 px-6 text-base font-medium text-zinc-400 outline-none focus:border-2 focus:border-yellow-500 focus:shadow-md" />
                                     </div>
                                     <div class="mb-5">
-                                        <label for="message" class="mb-3 block text-base font-medium text-zinc-700">
-                                            Message
-                                        </label>
-                                        <textarea rows="4" name="message" id="message" placeholder="Type your message"
-                                            class="w-full resize-none rounded-md border border-zinc-300 bg-white py-3 px-6 text-base font-medium text-zinc-400 outline-none focus:border-[#6A64F1] focus:shadow-md"></textarea>
+                                        <label for="message" class="mb-3 block text-base font-medium text-zinc-700">Message</label>
+                                        <textarea rows="4" name="message" id="message" placeholder="Type your message" class="w-full resize-none rounded-md border border-zinc-300 bg-white py-3 px-6 text-base font-medium text-zinc-400 outline-none focus:border-2 focus:border-yellow-500 focus:shadow-md"></textarea>
                                     </div>
-                                    <div>
-                                        <button
-                                            class="hover:shadow-form rounded-md bg-red-950 py-3 px-8 text-base font-semibold text-white outline-none">
-                                            Submit
-                                        </button>
+                                    <div class="flex flex-row items-center">
+                                        <button id="submit" type="submit" class="hover:shadow-form rounded-md bg-red-950 py-3 px-8 text-base font-semibold text-white outline-none">Submit</button>
+                                        <div class="flex flex-col">
+                                            <span id="submitted" class="hidden pl-5 text-green-200">Sent!</span>
+                                            <span id="complete" class="hidden pl-5 text-red-200 text-[10px]">Fill the entire form!</span>
+                                            <span id="good_email" class="hidden pl-5 text-yellow-200 text-[10px]">Use a valide address</span>
+                                        </div>
                                     </div>
                                 </form>
                             </div>
@@ -151,50 +152,216 @@
                 <p class="text-[7px] sm:text-[10px] lg:text-[15px]">POWER</p>
             </div>
         </div>
-    </main>
-    <div class="w-full h-16 bg-gradient-to-t from-zinc-100 to-zinc-600"></div>
-    <footer class="flex flex-row w-full items-center justify-evenly bg-zinc-100">
         <div class="flex flex-col">
-            <div class="flex flex-row items-center justify-center">
-                <nav class="text-center pt-10 w-[8rem] md:w-[12rem] mr-16">
-                    <div class="flex flex-row w-full justify-center">
-                        <button id="btn_up"
-                            class="text-white relative text-4xl border-x-2 border-b-4 border-zinc-900 bg-zinc-700 p-2 shadow-md active:shadow-sm shadow-black hover:bg-gray-400 active:bg-zinc-800 hover:text-black rounded-full "><span
-                                class="flex w-[1.5rem] h-[1.5rem] md:w-[3rem] md:h-[3rem] justify-center items-center rounded-full border-l-[1px] border-t-[1px] shadow-inner shadow-zinc-900 border-zinc-500">🠹</span></button>
+            <div class="w-full h-16 bg-gradient-to-t from-zinc-100 to-zinc-600"></div>
+            <div class="flex flex-row w-full items-center justify-evenly bg-zinc-100">
+                <div class="flex flex-col">
+                    <div class="flex flex-row items-center justify-center">
+                        <nav class="text-center pt-10 w-[8rem] md:w-[12rem] md:mr-16">
+                            <div class="flex flex-row w-full justify-center">
+                                <button id="btn_up"
+                                    class="text-white relative text-4xl border-x-2 border-b-4 border-zinc-900 bg-zinc-700 p-2 shadow-md active:shadow-sm shadow-black hover:bg-gray-400 active:bg-zinc-800 hover:text-black rounded-full "><span
+                                        class="flex w-[1.5rem] h-[1.5rem] md:w-[3rem] md:h-[3rem] justify-center items-center rounded-full border-l-[1px] border-t-[1px] shadow-inner shadow-zinc-900 border-zinc-500"><img
+                                            src="/images/up.svg" alt="flèche vers le haut"></span></button>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <button id="btn_left"
+                                    class="text-white relative text-4xl border-x-2 border-b-4 border-zinc-900 bg-zinc-700 p-2 shadow-md active:shadow-sm shadow-black hover:bg-gray-400 active:bg-zinc-800 hover:text-black rounded-full "><span
+                                        class="flex w-[1.5rem] h-[1.5rem] md:w-[3rem] md:h-[3rem] justify-center items-center rounded-full border-l-[1px] border-t-[1px] shadow-inner shadow-zinc-900 border-zinc-500"><img
+                                            src="/images/left.svg" alt="flèche vers la gauche"></span></button>
+                                <button id="btn_right"
+                                    class="text-white relative text-4xl border-x-2 border-b-4 border-zinc-900 bg-zinc-700 p-2 shadow-md active:shadow-sm shadow-black hover:bg-gray-400 active:bg-zinc-800 hover:text-black rounded-full "><span
+                                        class="flex w-[1.5rem] h-[1.5rem] md:w-[3rem] md:h-[3rem] justify-center items-center rounded-full border-l-[1px] border-t-[1px] shadow-inner shadow-zinc-900 border-zinc-500"><img
+                                            src="/images/right.svg" alt="flèche vers le haut"></span></button>
+                            </div>
+                            <div class="flex flex-row w-full justify-center">
+                                <button id="btn_down"
+                                    class="text-white relative text-4xl border-x-2 border-b-4 border-zinc-900 bg-zinc-700 p-2 shadow-md active:shadow-sm shadow-black hover:bg-gray-400 active:bg-zinc-800 hover:text-black rounded-full "><span
+                                        class="flex w-[1.5rem] h-[1.5rem] md:w-[3rem] md:h-[3rem] justify-center items-center rounded-full border-l-[1px] border-t-[1px] shadow-inner shadow-zinc-900 border-zinc-500"><img
+                                            src="/images/down.svg" alt="flèche vers le bas"></span></button>
+                            </div>
+                        </nav>
+                        <nav class="flex gap-4 p-4">
+                            <button id="buttonA" class="font-AntonSc text-3xl hover:brightness-125 ">
+                                <img id="imageA" src="/images/btn_arc.png" alt="bouton d'arcade rouge">A
+                            </button>
+                            <button id="buttonB" class="font-AntonSc text-3xl hover:brightness-125">
+                                <img id="imageB" src="/images/btn_arc.png" alt="bouton d'arcade rouge">B
+                            </button>
+                        </nav>
                     </div>
-                    <div class="flex items-center justify-between">
-                        <button id="btn_left"
-                            class="text-white relative text-4xl border-x-2 border-b-4 border-zinc-900 bg-zinc-700 p-2 shadow-md active:shadow-sm shadow-black hover:bg-gray-400 active:bg-zinc-800 hover:text-black rounded-full "><span
-                                class="flex w-[1.5rem] h-[1.5rem] md:w-[3rem] md:h-[3rem] justify-center items-center rounded-full border-l-[1px] border-t-[1px] shadow-inner shadow-zinc-900 border-zinc-500">🠸</span></button>
-                        <button id="btn_right"
-                            class="text-white relative text-4xl border-x-2 border-b-4 border-zinc-900 bg-zinc-700 p-2 shadow-md active:shadow-sm shadow-black hover:bg-gray-400 active:bg-zinc-800 hover:text-black rounded-full "><span
-                                class="flex w-[1.5rem] h-[1.5rem] md:w-[3rem] md:h-[3rem] justify-center items-center rounded-full border-l-[1px] border-t-[1px] shadow-inner shadow-zinc-900 border-zinc-500">🠺</span></button>
+                    <div>
+                        <img src="/images/retrosource_banner_main.png" alt="banniere retro source">
                     </div>
-                    <div class="flex flex-row w-full justify-center">
-                        <button id="btn_down"
-                            class="text-white relative text-4xl border-x-2 border-b-4 border-zinc-900 bg-zinc-700 p-2 shadow-md active:shadow-sm shadow-black hover:bg-gray-400 active:bg-zinc-800 hover:text-black rounded-full "><span
-                                class="flex w-[1.5rem] h-[1.5rem] md:w-[3rem] md:h-[3rem] justify-center items-center rounded-full border-l-[1px] border-t-[1px] shadow-inner shadow-zinc-900 border-zinc-500">🠻</span></button>
+                    <div class="flex justify-center pt-[12rem]">
+                        <div
+                            class="flex  w-[20rem] bg-zinc-700 rounded-3xl border-zinc-400  border-4 p-[2rem] flex-col">
+                            <div class="flex flex-row justify-between">
+                                <div
+                                    class="flex justify-center items-center bg-zinc-800 p-5 rounded-lg border-r-2 border-r-zinc-900 border-b-2 border-b-zinc-900 border-l-2 border-l-zinc-500 border-t-2 border-t-zinc-500">
+                                    <img class="flex w-[40px] h-[60px] rounded-md" src="/images/coinslot.gif"
+                                        alt="image d'accepteur de monnais d'arcade de jeu">
+                                </div>
+                                <div
+                                    class="flex justify-center items-center bg-zinc-800 p-5 rounded-lg border-r-2 border-r-zinc-900 border-b-2 border-b-zinc-900 border-l-2 border-l-zinc-500 border-t-2 border-t-zinc-500">
+                                    <img class="flex w-[40px] h-[60px] rounded-md" src="/images/coinslot.gif"
+                                        alt="image d'accepteur de monnais d'arcade de jeu">
+                                </div>
+                            </div>
+                            <div class="flex justify-center py-10">
+                                <img class="w-16" src="/images/serrure.png" alt="image de serrure">
+                            </div>
+                            <div class="flex flex-row justify-between">
+                                <div
+                                    class="flex justify-center items-center bg-zinc-800 p-5 rounded-lg border-r-2 border-r-zinc-900 border-b-2 border-b-zinc-900 border-l-2 border-l-zinc-500 border-t-2 border-t-zinc-500">
+                                    <div
+                                        class="flex justify-center items-center bg-zinc-800 p-5 rounded-lg border-r-2 border-l-zinc-900 border-b-2 border-t-zinc-900 border-l-2 border-r-zinc-500 border-t-2 border-b-zinc-500">
+                                    </div>
+                                </div>
+                                <div
+                                    class="flex justify-center items-center bg-zinc-800 p-5 rounded-lg border-r-2 border-r-zinc-900 border-b-2 border-b-zinc-900 border-l-2 border-l-zinc-500 border-t-2 border-t-zinc-500">
+                                    <div
+                                        class="flex justify-center items-center bg-zinc-800 p-5 rounded-lg border-r-2 border-l-zinc-900 border-b-2 border-t-zinc-900 border-l-2 border-r-zinc-500 border-t-2 border-b-zinc-500">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
-                </nav>
-                <nav class="flex gap-4 p-4">
-                    <button id="buttonA" class="font-AntonSc text-3xl hover:brightness-125">
-                        <img id="imageA" src="/images/btn_arc.png" alt="bouton d'arcade rouge">A
-                    </button>
-                    <button id="buttonB" class="font-AntonSc text-3xl hover:brightness-125">
-                        <img id="imageB" src="/images/btn_arc.png" alt="bouton d'arcade rouge">B
-                    </button>
-                </nav>
-            </div>
-            <div class="w-full bg-zinc-100 pt-[12rem]">
-                <img class="w-[3rem] h-[5rem] float-right rounded-md" src="/images/coinslot.gif"
-                    alt="image de hautparleurs">
+                </div>
             </div>
         </div>
+    </main>
+    <footer class="footer">
+        <div class="w-full h-16 bg-gradient-to-t from-zinc-600 to-zinc-100"></div>
+        <div class="flex flex-col">
+            <div class="flex flex-row md:flex-col justify-start items-start p-5"><a href="index.html"><img
+                        class="logo_footer flex border-2 bg-white border-white p-1 rounded" width="100rem"
+                        height="100rem" src="/images/logo_arcade.png" alt="logo dessin d'enfant"></a>
+                <div class="px-3 md:px-0 md:py-5">
+                    <label for="location" class="block text-sm font-medium leading-6 text-gray-900"></label>
+                    <select id="location" name="location"
+                        class="block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                        <option data-icon="⚑">United States</option>
+                        <option data-icon="⚑" selected>Canada</option>
+                        <option data-icon="⚑">Mexico</option>
+                    </select>
+                </div>
+            </div>
+            <ul class="text-white text-xl col-start-1 pl-5">
+                <li class="py-3"><a class="text-lg hover:underline" href="home.html">Home</a></li>
+                <li class="py-3"><a class="text-lg hover:underline" href="/src/html/products.html">Our products</a></li>
+                <li class="py-3"><a class="text-lg hover:underline" href="/src/html/contact.html">Contact us</a></li>
+                <li class="py-3"><a class="text-lg hover:underline" href="/src/html/about.html">About us
+
+                    </a></li>
+            </ul>
+        </div>
+        <div class="bg-purple-600 hidden xl:flex flex-col xl:col-start-2 pl-[5rem] border-white">
+            <p class="pt-10 text-2xl text-white">Find your perfect game type</p>
+            <div id="content_1" class="flex flex-row">
+                <ul class="p-16 w-[50%] text-xl text-white">
+                    <li><a href="/src/html/products.html?search=Sports"
+                            class="hover:underline cursor-pointer">Sports</a></li>
+                    <li><a href="/src/html/products.html?search=Fighting"
+                            class="hover:underline cursor-pointer">Fighting</a></li>
+                    <li><a href="/src/html/products.html?search=RPG" class="hover:underline cursor-pointer">RPG</a></li>
+                    <li><a href="/src/html/products.html?search=Racing"
+                            class="hover:underline cursor-pointer">Racing</a></li>
+                    <li><a href="/src/html/products.html?search=Adventure"
+                            class="hover:underline cursor-pointer">Adventure</a></li>
+                    <li><a href="/src/html/products.html?search=Management"
+                            class="hover:underline cursor-pointer">Management</a></li>
+                    <li><a href="/src/html/products.html?search=Platformer"
+                            class="hover:underline cursor-pointer">Platformer</a></li>
+                    <li><a href="/src/html/products.html?search=Simulator"
+                            class="hover:underline cursor-pointer">Simulator</a></li>
+                    <li><a href="/src/html/products.html?search=Stealth"
+                            class="hover:underline cursor-pointer">Stealth</a></li>
+                </ul>
+                <div class="flex w-[50%] h-[20rem]">
+                    <div id="footer_game-img" class="w-full h-[100%] bg-no-repeat bg-center">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row-start-2 p-5">
+            <label for="email" class="block md:text-xl font-medium leading-6 text-center text-white">Subscribe to be
+                first to know about our indie games</label>
+            <div class="relative mt-2 rounded-md shadow-sm">
+                <input type="email" name="email_newsletter" id="email_newsletter"
+                    class="block w-full rounded-md border-0 py-3 pr-10 text-red-900 ring-1 pl-3 ring-inset ring-red-300 placeholder:text-red-300 focus:ring-2 focus:ring-inset focus:ring-red-500 sm:text-sm sm:leading-6"
+                    placeholder="Ton e-mail ici!" value="" aria-invalid="true" aria-describedby="email-error">
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-1">
+                    <svg class="h-5 w-5 text-red-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path fill-rule="evenodd"
+                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-5a.75.75 0 01.75.75v4.5a.75.75 0 01-1.5 0v-4.5A.75.75 0 0110 5zm0 10a1 1 0 100-2 1 1 0 000 2z"
+                            clip-rule="evenodd" />
+                    </svg>
+                    <button type="button"
+                        class="rounded bg-purple-600 px-3 py-1 text-3xl font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">✉
+                    </button>
+                </div>
+            </div>
+            <p class="mt-2 text-sm text-red-300" id="email-error">Enter a valid address.</p>
+        </div>
+        <div class="xl:hidden">
+            <div class="bg-purple-600 border-t-4 border-b-4 border-white">
+                <button type="button"
+                    class="exp_dropdown w-full flex flex-row justify-between px-5 py-5 text-xl font-bold text-white">Find
+                    your perfect game type<p id="arrow">▼</p></button>
+                <div class="content flex flex-row">
+                    <ul class="flex flex-col p-5 text-xl w-[50%] text-white">
+                        <li><a href="/src/html/products.html?search=Sports"
+                                class="hover:underline cursor-pointer">Sports</a></li>
+                        <li><a href="/src/html/products.html?search=Fighting"
+                                class="hover:underline cursor-pointer">Fighting</a></li>
+                        <li><a href="/src/html/products.html?search=RPG" class="hover:underline cursor-pointer">RPG</a>
+                        </li>
+                        <li><a href="/src/html/products.html?search=Racing"
+                                class="hover:underline cursor-pointer">Racing</a></li>
+                        <li><a href="/src/html/products.html?search=Adventure"
+                                class="hover:underline cursor-pointer">Adventure</a></li>
+                        <li><a href="/src/html/products.html?search=Management"
+                                class="hover:underline cursor-pointer">Management</a></li>
+                        <li><a href="/src/html/products.html?search=Platformer"
+                                class="hover:underline cursor-pointer">Platformer</a></li>
+                        <li><a href="/src/html/products.html?search=Simulator"
+                                class="hover:underline cursor-pointer">Simulator</a></li>
+                        <li><a href="/src/html/products.html?search=Stealth"
+                                class="hover:underline cursor-pointer">Stealth</a></li>
+                    </ul>
+
+                </div>
+            </div>
+
+
+        </div>
+        <div class="ns_suivre flex flex-col xl:col-start-5 xl:row-start-2 items-start p-5">
+            <h2 class="text-white font-semibold text-2xl ">Follow us!</h2>
+            <nav class="flex flex-row justify-center p-5 gap-5">
+                <a class="btn_socials min-w-[50px] max-w-[70px] xl:w-[5rem] cursor-pointer xl:p-2"
+                    href="https://www.esports.com/en"><img src="/images/esport.svg" alt="icône esports"></a>
+                <a class="btn_socials min-w-[50px] max-w-[70px] xl:w-[5rem] cursor-pointer xl:p-2"
+                    href="https://www.twitch.tv/"><img src="/images/Twitch.svg" alt="icône twitch"></a>
+                <a class="btn_socials min-w-[50px] max-w-[70px] xl:w-[5rem] cursor-pointer xl:p-2"
+                    href="https://www.discord.com/"><img src="/images/discord.svg" alt="icône discord"></a>
+                <a class="btn_socials min-w-[50px] max-w-[70px] xl:w-[5rem] cursor-pointer xl:p-2"
+                    href="https://www.youtube.com"><img src="/images/YouTube.svg" alt="icône youtube"></a>
+            </nav>
+        </div>
+        <div class="last_div">
+            <p></p>
+        </div>
+        <p class="row-start-8 text-white col-span-5 py-10">&copy; 2024 Finn Taca. Tous droits réservés.</p>
     </footer>
     <div id="app"></div>
     <audio id="punchSound" src="/sounds/key-punch.mp3"></audio>
     <audio id="clickSound" src="/sounds/click-sound.wav"></audio>
     <script type="module" src="/src/js/main.js" defer></script>
-</body>
+    <script type="module" src="/src/js/ctrlpadsonctact.js" defer></script>
 
+</body>
 </html>
