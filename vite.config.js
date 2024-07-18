@@ -13,9 +13,9 @@ export default {
         rollupOptuins:{
             input: {
                 main: resolve(root, 'index.html'),
-                products: resolve(root, '/src/html/products.html'),
-                contact: resolve(root, '/src/html/contact.html'),
-                about: resolve(root, '/src/html/about.html'),
+                products: resolve(root, 'products.html'),
+                contact: resolve(root, 'contact.html'),
+                about: resolve(root, 'about.html'),
             }
         },
     },
