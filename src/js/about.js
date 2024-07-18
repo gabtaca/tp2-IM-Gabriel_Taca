@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const devText = document.getElementById("dev_text");
     const artistText = document.getElementById("artist_text");
 
-    let toggled = false; 
+    let toggled = false;
 
     function changeTextContent() {
         if (toggled) {
@@ -34,43 +34,46 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function changeGridPositioning() {
         if (toggled) {
-            ceoText.className = "text-center px-5 drop-shadow-md md:col-start-2 md:row-start-2 lg:col-start-1 lg:row-start-3 bg-[url('/image/fyyaaa.gif')]";
+            ceoText.className = "text-center px-5 drop-shadow-md md:col-start-2 md:row-start-2 lg:col-start-1 lg:row-start-3 ";
             ceo.className = "md:col-start-1 md:row-start-2 lg:col-start-1 lg:row-start-2";
 
-            devText.className = "text-center px-5 drop-shadow-md md:col-start-1 md:row-start-3 lg:col-start-2 lg:row-start-3 bg-[url('/img/hero-pattern.svg')]";
+            devText.className = "text-center px-5 drop-shadow-md md:col-start-1 md:row-start-3 lg:col-start-2 lg:row-start-3 bg-[url('/images/')]";
             dev.className = "md:col-start-2 md:row-start-3 lg:col-start-2 lg:row-start-2";
 
-            artistText.className = "text-center px-5 drop-shadow-md md:col-start-2 md:row-start-4 lg:col-start-3 lg:row-start-3 bg-[url('/img/hero-pattern.svg')]";
+            artistText.className = "text-center px-5 drop-shadow-md md:col-start-2 md:row-start-4 lg:col-start-3 lg:row-start-3 bg-[url('/images/')]";
             artist.className = "md:col-start-1 md:row-start-4 lg:col-start-3 lg:row-start-2";
         } else {
-            ceoText.className = "text-center px-5 drop-shadow-md md:col-start-1 md:row-start-2 lg:col-start-2 lg:row-start-1 bg-[url('/img/hero-pattern.svg')]";
+            ceoText.className = "text-center px-5 drop-shadow-md md:col-start-1 md:row-start-2 lg:col-start-1 lg:row-start-3 ";
             ceo.className = "md:col-start-2 md:row-start-2 lg:col-start-1 lg:row-start-1";
 
-            devText.className = "text-center px-5 drop-shadow-md md:col-start-1 md:row-start-3 lg:col-start-3 lg:row-start-1 bg-[url('/img/hero-pattern.svg')]";
+            devText.className = "text-center px-5 drop-shadow-md md:col-start-1 md:row-start-3 lg:col-start-3 lg:row-start-1 bg-[url('/images/')]";
             dev.className = "md:col-start-2 md:row-start-3 lg:col-start-2 lg:row-start-1";
 
-            artistText.className = "text-center px-5 drop-shadow-md md:col-start-1 md:row-start-4 lg:col-start-4 lg:row-start-1 bg-[url('/img/hero-pattern.svg')]";
+            artistText.className = "text-center px-5 drop-shadow-md md:col-start-1 md:row-start-4 lg:col-start-4 lg:row-start-1 bg-[url('/images/')]";
             artist.className = "md:col-start-2 md:row-start-4 lg:col-start-3 lg:row-start-1";
         }
     }
 
     function changeBackgroundImages() {
         if (toggled) {
-            ceoText.style.backgroundImage = "url('/img/hero-pattern.svg')";
-            devText.style.backgroundImage = "url('/img/hero-pattern.svg')";
-            artistText.style.backgroundImage = "url('/img/hero-pattern.svg')";
+            ceoImage.style.backgroundImage = "url('/img/hero-pattern.svg')";
+            devImage.style.backgroundImage = "url('/img/hero-pattern.svg')";
+            devImage.style.border = '';
+            artistImage.style.backgroundImage = "url('/img/hero-pattern.svg')";
+            artistImage.style.border = '';
         } else {
-            ceoText.style.backgroundImage = "url('/images/hero_dark.svg')";
-            devText.style.backgroundImage = "url('/images/hero_dark.svg')";
-            artistText.style.backgroundImage = "url('/images/hero_dark.svg')";
+            ceoImage.style.backgroundImage = "url('/images/satan.gif')";
+            devImage.style.backgroundImage = "url('/images/dev_bg.gif')";
+            devImage.style.border = 'beige 6px solid';
+            artistImage.style.backgroundImage = "url('/images/bg_artist.gifv')";
+            artistImage.style.border = 'purple 6px solid';
+            
         }
     }
 
     function toggleElements() {
         changeTextContent();
-
         changeGridPositioning();
-
         changeBackgroundImages();
 
         toggleButton.classList.toggle("bg-orange-600");
@@ -78,13 +81,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (contactBg) {
             contactBg.classList.toggle("bg-zinc-200");
-            contactBg.classList.toggle("bg-gray-800");
             contactBg.classList.toggle("text-zinc-900");
             contactBg.classList.toggle("text-white");
         }
 
         if (teamContainer) {
-            teamContainer.classList.toggle("bg-zinc-200");
             teamContainer.classList.toggle("bg-gray-800");
             teamContainer.classList.toggle("text-amber-800");
             teamContainer.classList.toggle("text-white");
@@ -101,7 +102,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 artistImage.src = "/images/artist.gif";
             }
         }
-
 
         toggled = !toggled;
     }

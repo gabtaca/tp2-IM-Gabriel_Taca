@@ -97,3 +97,19 @@ h1 {
   transition: transform 0.3s ease;
 }
 
+#ceo {
+  background-size: cover;
+  border-radius: 40px;
+}
+
+#dev {
+  background-size: cover;
+  height: 90%;
+  border-radius: 40px;
+}
+
+#artist {
+  background-size: cover;
+  width: 90%;
+  border-radius: 40px;
+}

@@ -1,14 +1,22 @@
 /** @type {import('vite').UserConfig} */
+import { resolve } from 'vite';
+import { rollupVersion } from 'vite';
+
+const root = resolve(__dirname, 'src');
+const outDir = resolve(__dirname, 'dist');
+
 export default {
+    root: root,
     build: {
-      rollupOptions: {
-        input: 'src/html/index.html',
-      },
-      copy: [
-        {
-          src: 'src/html/*.html',
-          dest: 'public'
-        }
-      ]
-    }
-  }
+        outDir: outDir,
+        emptyOurdir: true,
+        rollupOptuins:{
+            input: {
+                main: resolve(root, 'index.html'),
+                products: resolve(root, '/src/html/products.html'),
+                contact: resolve(root, '/src/html/contact.html'),
+                about: resolve(root, '/src/html/about.html'),
+            }
+        },
+    },
+}
