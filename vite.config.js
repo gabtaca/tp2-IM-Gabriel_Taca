@@ -9,8 +9,8 @@ export default {
     root: root,
     build: {
         outDir: outDir,
-        emptyOurdir: true,
-        rollupOptuins:{
+        emptyOutdir: true,
+        rollupOptions:{
             input: {
                 main: resolve(root, 'index.html'),
                 products: resolve(root, '/html/products.html'),
