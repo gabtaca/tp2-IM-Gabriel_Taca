@@ -1,22 +1,23 @@
 /** @type {import('vite').UserConfig} */
-import { resolve } from 'vite';
-import { rollupVersion } from 'vite';
+import { resolve } from 'path';
+import { defineConfig } from 'vite';
 
 const root = resolve(__dirname, 'src');
 const outDir = resolve(__dirname, 'dist');
 
-export default {
+export default defineConfig({
     root: root,
+    publicDir: resolve(__dirname, 'public'), 
     build: {
         outDir: outDir,
-        emptyOutdir: true,
-        rollupOptions:{
+        emptyOutDir: true,
+        rollupOptions: {
             input: {
                 main: resolve(root, 'index.html'),
-                products: resolve(root, '/html/products.html'),
-                contact: resolve(root, '/html/contact.html'),
-                about: resolve(root, '/html/about.html'),
+                products: resolve(root, 'html/products.html'),
+                contact: resolve(root, 'html/contact.html'),
+                about: resolve(root, 'html/about.html'),
             }
         },
     },
-}
+});

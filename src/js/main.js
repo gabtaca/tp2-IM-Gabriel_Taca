@@ -1,9 +1,9 @@
-import '/src/css/style.css';
-import '/src/css/index.css';
-import '/src/js/cart';
-import '/src/js/burger';
-import '/src/js/search';
-import '/src/js/footer';
+import '/css/style.css';
+import '/css/index.css';
+import '/js/cart';
+import '/js/burger';
+import '/js/search';
+import '/js/footer';
 import 'animate.css';
 import { gamesList } from "./gamesList";
 
