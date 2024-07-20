@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function filterGames(query) {
+        console.log("Filtering games with query:", query);
         gamesList.forEach((game) => {
             const isVisible = game.title.toLowerCase().includes(query.toLowerCase()) ||
                                 game.description.toLowerCase().includes(query.toLowerCase()) ||
@@ -32,8 +33,8 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     searchButton.addEventListener("click", () => {
-        const isHidden = searchDiv.style.display === "none";
-        toggleSearchDiv(!isHidden);
+        const isHidden = searchDiv.style.display === "none" || searchDiv.style.display === "";
+        toggleSearchDiv(isHidden);
     });
 
     if (gameContainer) {
@@ -53,18 +54,21 @@ document.addEventListener("DOMContentLoaded", function() {
             history.replaceState(null, '', newUrl); 
         });
     } else {
-        searchButton.addEventListener("click", () => {
-            const isHidden = searchDiv.style.display === "none";
-            toggleSearchDiv(!isHidden);
-            if (!isHidden) {
-                resetSearch();
-            }
-        });
-
         searchInput.addEventListener("keypress", function(event) {
             if (event.key === "Enter") {
                 event.preventDefault();
-                searchBarButton.click();
+                const query = searchInput.value.trim();
+                if (query) {
+                    window.location.href = `./products.html?search=${encodeURIComponent(query)}`;
+                }
+            }
+        });
+
+        searchBarButton.addEventListener("click", function(event) {
+            event.preventDefault();
+            const query = searchInput.value.trim();
+            if (query) {
+                window.location.href = `./products.html?search=${encodeURIComponent(query)}`;
             }
         });
     }
