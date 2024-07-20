@@ -1,5 +1,4 @@
 import { gamesList } from "./gamesList";
-import { currentGame } from './ctrlpadprod.js';
 
 document.addEventListener("DOMContentLoaded", function() {
     const searchButton = document.getElementById("btn_search");
@@ -23,23 +22,18 @@ document.addEventListener("DOMContentLoaded", function() {
         filterGames("");
     }
 
-function filterGames(query) {
-    gamesList.forEach((game, index) => {
-        const isVisible = game.title.toLowerCase().includes(query.toLowerCase()) ||
-                            game.description.toLowerCase().includes(query.toLowerCase()) ||
-                            game.type.toLowerCase().includes(query.toLowerCase());
-        game.setVisible(isVisible);
-        if (index === currentGame && !isVisible) {
-            currentGame = gamesList.findIndex(game => game.htmlElement.style.display !== 'none');
-        } else if (isVisible && index < currentGame) {
-            currentGame--;
-        }
-    });
-}
+    function filterGames(query) {
+        gamesList.forEach((game) => {
+            const isVisible = game.title.toLowerCase().includes(query.toLowerCase()) ||
+                                game.description.toLowerCase().includes(query.toLowerCase()) ||
+                                game.type.toLowerCase().includes(query.toLowerCase());
+            game.setVisible(isVisible);
+        });
+    }
 
     searchButton.addEventListener("click", () => {
         const isHidden = searchDiv.classList.contains("md:hidden");
-        toggleSearchDiv(isHidden);
+        toggleSearchDiv(!isHidden);
     });
 
     if (gameContainer) {
