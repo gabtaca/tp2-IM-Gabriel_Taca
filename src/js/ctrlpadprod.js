@@ -1,10 +1,9 @@
 import { gamesList } from "./gamesList";
-console.log(gamesList);
 
 const scrollCtrl = document.getElementById('scroll_ctrl-products');
 let scrollInterval = null;
 const clickSound = new Audio('/sounds/click-sound.wav'); 
-let currentGame = -1;  
+export let currentGame = -1;  
 let visibleGames = [];
 
 function updateVisibleGames() {
@@ -12,33 +11,25 @@ function updateVisibleGames() {
 }
 
 function updateFocus() {
-    if (visibleGames.length > 0 && visibleGames[currentGame]) {
-        visibleGames[currentGame].htmlElement.focus();
-        const elementRect = visibleGames[currentGame].htmlElement.getBoundingClientRect();
+    if (document.activeElement === searchInput) return; // Check if search input is focused
+    const visibleItems = gamesList.filter(game => game.htmlElement.style.display !== 'none');
+    if (visibleItems.length > 0 && currentGame >= 0 && currentGame < visibleItems.length) {
+        const focusedItem = visibleItems[currentGame];
+        console.log('Focused item:', focusedItem); // Log the focused item
+        focusedItem.htmlElement.focus();
+        const elementRect = focusedItem.htmlElement.getBoundingClientRect();
         const scrollCtrlRect = scrollCtrl.getBoundingClientRect(); 
         const bottomPosition = elementRect.bottom - scrollCtrlRect.bottom; 
         scrollCtrl.scrollTop += bottomPosition;
     }
 }
 
-function filterGames(query) {
-    gamesList.forEach(game => {
-        const isVisible = game.title.toLowerCase().includes(query.toLowerCase()) ||
-                            game.description.toLowerCase().includes(query.toLowerCase()) ||
-                            game.type.toLowerCase().includes(query.toLowerCase());
-        game.setVisible(isVisible);
-    });
-    updateVisibleGames();
-
-    const headerElements = document.getElementsByClassName('games_header');
-    if (query === '') {
-        for (let i = 0; i < headerElements.length; i++) {
-            headerElements[i].style.display = 'flex';
-        }
-    } else {
-        for (let i = 0; i < headerElements.length; i++) {
-            headerElements[i].style.display = 'none';
-        }
+function navigateGames(direction) {
+    const visibleItems = gamesList.filter(game => game.htmlElement.style.display !== 'none');
+    const newIndex = currentGame + direction;
+    if (newIndex >= 0 && newIndex < visibleItems.length) {
+        currentGame = newIndex;
+        updateFocus();
     }
 }
 
@@ -54,8 +45,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     document.getElementById('btn_up').addEventListener('mouseup', () => {
         clearInterval(scrollInterval);
-        currentGame = Math.max(currentGame - 1, 0);
-        updateFocus();
+        navigateGames(-1);
     });
 
     document.getElementById('btn_down').addEventListener('mousedown', () => {
@@ -67,8 +57,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     document.getElementById('btn_down').addEventListener('mouseup', () => {
         clearInterval(scrollInterval);
-        currentGame = Math.min(currentGame + 1, visibleGames.length - 1);
-        updateFocus();
+        navigateGames(1);
     });
 
     document.getElementById('btn_left').addEventListener('mousedown', () => {
@@ -96,5 +85,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 document.getElementById('searchInput').addEventListener('input', function() {
     const query = this.value.trim();
-    filterGames(query);
+    updateVisibleGames();
+    currentGame = 0;
+    updateFocus();
 });

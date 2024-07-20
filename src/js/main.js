@@ -7,7 +7,6 @@ import '/js/footer';
 import 'animate.css';
 import { gamesList } from "./gamesList";
 
-
 document.addEventListener('DOMContentLoaded', () => {
     function updateGameInfo(title, description) {
         const modalTitle = document.getElementById('modalTitle');
@@ -31,10 +30,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const imageB = document.getElementById('imageB');
     const punchSound = document.getElementById('punchSound');
 
+    let originalSrcA, originalSrcB;
+
+    if (imageA) {
+        originalSrcA = imageA.src;
+    }
+
+    if (imageB) {
+        originalSrcB = imageB.src;
+    }
+
     const activeSrcA = '/images/btn_arc-pressed.png';
-    const originalSrcA = imageA.src;
     const activeSrcB = '/images/btn_arc-pressed.png';
-    const originalSrcB = imageB.src;
 
     let currentGame = -1; 
 
@@ -57,46 +64,53 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     ['mousedown', 'mouseup', 'mouseleave'].forEach(event => {
-        buttonA.addEventListener(event, (e) => {
-            if (e.type === 'mousedown') {
-                imageA.src = activeSrcA;
+        if (buttonA) {
+            buttonA.addEventListener(event, (e) => {
+                if (e.type === 'mousedown') {
+                    if (imageA) {
+                        imageA.src = activeSrcA;
+                    }
+                    playPunchSound();
+                    simulateMouseClick();
+                } else {
+                    if (imageA) {
+                        imageA.src = originalSrcA;
+                    }
+                }
+                e.preventDefault();
+            });
+        }
+    
+        if (buttonB) {
+            buttonB.addEventListener('mousedown', () => {
+                if (imageB) {
+                    imageB.src = activeSrcB;
+                }
                 playPunchSound();
-                simulateMouseClick();
-            } else {
-                imageA.src = originalSrcA;
-            }
-            e.preventDefault();
-        });
-
-        buttonB.addEventListener('mousedown', () => {
-            imageB.src = activeSrcB;
-            playPunchSound();
+                
+                const focusedButton = document.activeElement;
+                const game = gamesList.find(g => g.addToCartButton === focusedButton);
+                
+                if (game && game.description) {
+                    updateGameInfo(game.title, game.description);
+                    toggleModal();  
+                }
+            });
             
-            const focusedButton = document.activeElement;
-            const game = gamesList.find(g => g.addToCartButton === focusedButton);
+            buttonB.addEventListener('mouseup', () => {
+                if (imageB) {
+                    imageB.src = originalSrcB;
+                }
+            });
             
-            if (game && game.description) {
-                updateGameInfo(game.title, game.description);
-                toggleModal();  
-            }
-        });
-        
-        buttonB.addEventListener('mouseup', () => {
-            imageB.src = originalSrcB;
-        });
-        
-        buttonB.addEventListener('mouseleave', () => {
-            imageB.src = originalSrcB;
-        });
+            buttonB.addEventListener('mouseleave', () => {
+                if (imageB) {
+                    imageB.src = originalSrcB;
+                }
+            });
+        }
     });
 
-    function toggleModal() {
-        const modal = document.getElementById('gameModal');
-        if (modal) {
-            modal.classList.toggle('hidden');
-        }
-    }
-    
     function toggleModal() {
         const modal = document.getElementById('gameModal');
         if (modal) {
@@ -132,4 +146,3 @@ document.addEventListener('DOMContentLoaded', () => {
     
     setupModalAccessibility();
 });
-

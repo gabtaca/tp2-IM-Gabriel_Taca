@@ -1,4 +1,5 @@
 import { gamesList } from "./gamesList";
+import { currentGame } from './ctrlpadprod.js';
 
 document.addEventListener("DOMContentLoaded", function() {
     const searchButton = document.getElementById("btn_search");
@@ -22,20 +23,19 @@ document.addEventListener("DOMContentLoaded", function() {
         filterGames("");
     }
 
-    function filterGames(query) {
-        gamesList.forEach(game => {
-            const isVisible = game.title.toLowerCase().includes(query.toLowerCase()) ||
-                              game.description.toLowerCase().includes(query.toLowerCase()) ||
-                              game.type.toLowerCase().includes(query.toLowerCase());
-            game.setVisible(isVisible);
-        });
-    }
-
-    function setupGameVisibility() {
-        gamesList.forEach(game => {
-            game.setVisible(true);
-        });
-    }
+function filterGames(query) {
+    gamesList.forEach((game, index) => {
+        const isVisible = game.title.toLowerCase().includes(query.toLowerCase()) ||
+                            game.description.toLowerCase().includes(query.toLowerCase()) ||
+                            game.type.toLowerCase().includes(query.toLowerCase());
+        game.setVisible(isVisible);
+        if (index === currentGame && !isVisible) {
+            currentGame = gamesList.findIndex(game => game.htmlElement.style.display !== 'none');
+        } else if (isVisible && index < currentGame) {
+            currentGame--;
+        }
+    });
+}
 
     searchButton.addEventListener("click", () => {
         const isHidden = searchDiv.classList.contains("md:hidden");
@@ -43,8 +43,6 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     if (gameContainer) {
-        setupGameVisibility();
-
         const params = new URLSearchParams(window.location.search);
         const searchQuery = params.get('search');
         if (searchQuery) {
@@ -65,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function() {
             event.preventDefault();
             const query = searchInput.value.trim();
             if (query) {
-                window.location.href = `/src/html/products.html?search=${encodeURIComponent(query)}`;
+                window.location.href = `/products.html?search=${encodeURIComponent(query)}`;
             }
         });
 

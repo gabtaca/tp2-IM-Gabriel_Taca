@@ -1,4 +1,3 @@
-
 import { gamesList } from "./gamesList";
 
 class GameManager {
@@ -23,6 +22,8 @@ class GameManager {
         header.appendChild(headerImage);
         header.appendChild(headerText);
 
+        this.header = header; 
+
         this.container.appendChild(header);
     }
 
@@ -35,8 +36,22 @@ class GameManager {
 document.addEventListener('DOMContentLoaded', () => {
     const gameManager = new GameManager('screen_content-container-products');
 
+    const params = new URLSearchParams(window.location.search);
+    const searchQuery = params.get('search');
 
+    if (searchQuery) {
+        gameManager.header.style.display = 'none';
+    }
 
+    const searchInput = document.getElementById('searchInput');
+
+    searchInput.addEventListener('input', () => {
+        if (searchInput.value.trim() === '') {
+            gameManager.header.style.display = 'flex'; 
+        } else {
+            gameManager.header.style.display = 'none';
+        }
+    });
 
     gamesList.forEach(game => {
         gameManager.addGame(game);
