@@ -62,16 +62,18 @@ export class Games {
         gamesItem.appendChild(img);
         gamesItem.appendChild(content);
 
-        this.htmlElement = addToCartButton;
-        this.addToCartButton = addToCartButton;  
-        this.detailsElement = gamesItem;  
+        this.htmlElement = gamesItem;
+        this.addToCartButton = addToCartButton;
+        this.detailsElement = gamesItem;
 
         return gamesItem;
-        
     }
+
     setVisible(visible) {
-        if (this.detailsElement) {
-            this.detailsElement.style.display = visible ? '' : 'none';
-        }
+        this.htmlElement.style.display = visible ? 'flex' : 'none';
+    }
+
+    isVisible() {
+        return this.htmlElement.style.display !== 'none';
     }
 }

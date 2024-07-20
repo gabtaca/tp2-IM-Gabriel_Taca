@@ -43,9 +43,30 @@ window.addEventListener("resize", () => {
     }
 
     searchButton.addEventListener("click", () => {
-        const isHidden = searchDiv.style.display === "none" || searchDiv.style.display === "";
-        toggleSearchDiv(isHidden);
+        const screenWidth = window.innerWidth;
+        const mdBreakpoint = 768;
+        if (screenWidth < mdBreakpoint) {
+            searchDiv.style.display = "flex";
+        } else {
+            const isHidden = searchDiv.style.display === "none" || searchDiv.style.display === "";
+            toggleSearchDiv(isHidden);
+        }
     });
+    
+    window.addEventListener("resize", () => {
+        const screenWidth = window.innerWidth;
+        if (screenWidth < 768) {
+            searchDiv.style.display = "flex";
+        } else {
+            searchDiv.style.display = "none";
+        }
+    });
+    
+    const initialScreenWidth = window.innerWidth;
+    if (initialScreenWidth >= 768) {
+        searchDiv.style.display = "none";
+    }
+
 
     if (gameContainer) {
         const params = new URLSearchParams(window.location.search);
