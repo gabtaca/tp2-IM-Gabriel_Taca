@@ -30,7 +30,7 @@ class GameManager {
 
     createButtonBar() {
         const headerInstructions = document.createElement('div');
-        headerInstructions.className = 'flex flex-row text-sm justify-center mb-4 pt-3 col-span-1 md:col-span-2 lg:col-span-3';
+        headerInstructions.className = 'flex flex-col md:flex-row text-sm md:justify-center item-center mb-4 pt-3 col-span-1 md:col-span-2 lg:col-span-3';
 
         const buttonA = document.createElement('div');
         buttonA.className = 'flex flex-row items-center mr-4';
