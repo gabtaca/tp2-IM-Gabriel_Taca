@@ -9,10 +9,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function toggleSearchDiv(show) {
         if (show) {
-            searchDiv.classList.remove("md:hidden");
+            searchDiv.style.display = "block";
             searchInput.focus();
         } else {
-            searchDiv.classList.add("md:hidden");
+            searchDiv.style.display = "none";
             resetSearch();
         }
     }
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     searchButton.addEventListener("click", () => {
-        const isHidden = searchDiv.classList.contains("md:hidden");
+        const isHidden = searchDiv.style.display === "none";
         toggleSearchDiv(!isHidden);
     });
 
