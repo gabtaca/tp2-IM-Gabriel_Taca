@@ -28,7 +28,18 @@ function filterGames(query) {
                             game.type.toLowerCase().includes(query.toLowerCase());
         game.setVisible(isVisible);
     });
-    updateVisibleGames(); 
+    updateVisibleGames();
+
+    const headerElements = document.getElementsByClassName('games_header');
+    if (query === '') {
+        for (let i = 0; i < headerElements.length; i++) {
+            headerElements[i].style.display = 'flex';
+        }
+    } else {
+        for (let i = 0; i < headerElements.length; i++) {
+            headerElements[i].style.display = 'none';
+        }
+    }
 }
 
 document.addEventListener("DOMContentLoaded", function() {

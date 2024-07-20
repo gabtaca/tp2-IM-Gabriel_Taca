@@ -168,7 +168,7 @@ document.addEventListener("DOMContentLoaded", function() {
         return emailRegex.test(email);
     }
 
-    const imgA = document.getElementById('ctct_anim-a');
+    const imgA = document.getElementByC('ctct_anim-a');
     const imgB = document.getElementById('ctct_anim-b');
     let isPressed = false;
 

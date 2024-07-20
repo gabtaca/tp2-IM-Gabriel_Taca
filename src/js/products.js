@@ -9,7 +9,7 @@ class GameManager {
 
     createHeader() {
         const header = document.createElement('div');
-        header.className = 'flex flex-col items-center p-4 border-b border-lime-900 col-span-1 md:col-span-2 lg:col-span-3';
+        header.className = 'games_header flex flex-col items-center p-4 border-b border-lime-900 col-span-1 md:col-span-2 lg:col-span-3';
 
         const headerImage = document.createElement('img');
         headerImage.src = '/images/header_products.png'; 
