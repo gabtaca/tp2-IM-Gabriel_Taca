@@ -63,7 +63,7 @@ function filterGames(query) {
             event.preventDefault();
             const query = searchInput.value.trim();
             if (query) {
-                window.location.href = `/products.html?search=${encodeURIComponent(query)}`;
+                window.location.href = `./products.html?search=${encodeURIComponent(query)}`;
             }
         });
 
