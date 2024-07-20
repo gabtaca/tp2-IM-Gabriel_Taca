@@ -53,11 +53,11 @@ document.addEventListener("DOMContentLoaded", function() {
             history.replaceState(null, '', newUrl); 
         });
     } else {
-        searchBarButton.addEventListener("click", function(event) {
-            event.preventDefault();
-            const query = searchInput.value.trim();
-            if (query) {
-                window.location.href = `./products.html?search=${encodeURIComponent(query)}`;
+        searchButton.addEventListener("click", () => {
+            const isHidden = searchDiv.style.display === "none";
+            toggleSearchDiv(!isHidden);
+            if (!isHidden) {
+                resetSearch();
             }
         });
 
