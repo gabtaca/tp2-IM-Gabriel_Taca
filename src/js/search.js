@@ -1,5 +1,6 @@
 import { gamesList } from "./gamesList";
 
+
 document.addEventListener("DOMContentLoaded", function() {
     const searchButton = document.getElementById("btn_search");
     const searchDiv = document.getElementById("search_div");
@@ -7,9 +8,18 @@ document.addEventListener("DOMContentLoaded", function() {
     const searchBarButton = document.getElementById("btn_srch-bar");
     const gameContainer = document.getElementById('screen_content-container-products');
 
+window.addEventListener("resize", () => {
+    const screenWidth = window.innerWidth;
+    if (screenWidth < 768) {
+        searchButton.style.display = "none";
+    } else {
+        searchButton.style.display = "block";
+    }
+});
+
     function toggleSearchDiv(show) {
         if (show) {
-            searchDiv.style.display = "block";
+            searchDiv.style.display = "flex";
             searchInput.focus();
         } else {
             searchDiv.style.display = "none";
