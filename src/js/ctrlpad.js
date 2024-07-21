@@ -1,5 +1,5 @@
 import { newsList } from "./newsList";
-console.log(newsList);
+// code inutile -0.5
 
 const scrollCtrl = document.getElementById('scroll_ctrl-home');
 let scrollInterval = null;

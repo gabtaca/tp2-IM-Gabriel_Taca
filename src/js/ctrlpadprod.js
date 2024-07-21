@@ -15,7 +15,7 @@ function updateFocus() {
     const visibleItems = gamesList.filter(game => game.htmlElement.style.display !== 'none');
     if (visibleItems.length > 0 && currentGame >= 0 && currentGame < visibleItems.length) {
         const focusedItem = visibleItems[currentGame];
-        console.log('Focused item:', focusedItem); // Log the focused item
+        // code inutile
         focusedItem.htmlElement.focus();
         const elementRect = focusedItem.htmlElement.getBoundingClientRect();
         const scrollCtrlRect = scrollCtrl.getBoundingClientRect(); 
