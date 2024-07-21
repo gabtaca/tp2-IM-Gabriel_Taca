@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const searchBarButton = document.getElementById("btn_srch-bar");
     const gameContainer = document.getElementById('screen_content-container-products');
 
+// Aurait pu et aurait du etre fait en css.
 window.addEventListener("resize", () => {
     const screenWidth = window.innerWidth;
     if (screenWidth < 768) {
@@ -17,6 +18,7 @@ window.addEventListener("resize", () => {
     }
 });
 
+    // Il aurait ete preferable 
     function toggleSearchDiv(show) {
         if (show) {
             searchDiv.style.display = "flex";
@@ -33,7 +35,8 @@ window.addEventListener("resize", () => {
     }
 
     function filterGames(query) {
-        console.log("Filtering games with query:", query);
+        // code inutile les console.log sont utile pour toi. Tu dois les enlever avant de remettre un travail.
+
         gamesList.forEach((game) => {
             const isVisible = game.title.toLowerCase().includes(query.toLowerCase()) ||
                                 game.description.toLowerCase().includes(query.toLowerCase()) ||
